@@ -56,7 +56,7 @@ build_ibm_provider(){
     if [[ ! -f "${TF_PLUGIN_PATH}/IBM-Cloud/ibm/${TERRAFORM_PROVIDER_IBM_VERSION}/${GOOS}_${GOARCH}/terraform-provider-ibm" ]]; then
             echo "Building IBM Cloud provider v${TERRAFORM_PROVIDER_IBM_VERSION} for ${GOOS}/${GOARCH}"
         cd /tmp
-        curl -fsSL https://github.com/IBM-Cloud/terraform-provider-ibm/archive/refs/tags/v${TERRAFORM_PROVIDER_IBM_VERSION}.zip -o ./terraform-provider-ibm.zip
+        curl -fsSL https://github.com/vibhutisawant/terraform-provider-ibm/archive/refs/tags/v${TERRAFORM_PROVIDER_IBM_VERSION}.zip -o ./terraform-provider-ibm.zip
         unzip -o ./terraform-provider-ibm.zip  >/dev/null 2>&1
         rm -f ./terraform-provider-ibm.zip
         cd terraform-provider-ibm-${TERRAFORM_PROVIDER_IBM_VERSION}
