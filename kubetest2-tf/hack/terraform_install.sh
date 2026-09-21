@@ -76,8 +76,6 @@ build_null_provider(){
         unzip -o ./terraform-provider-null.zip  >/dev/null 2>&1
         rm -f ./terraform-provider-null.zip
         cd terraform-provider-null-${TERRAFORM_PROVIDER_NULL_VERSION}
-        # grpc v1.79.x references http2.TrailerPrefix removed in Go 1.24+; pin to compatible version
-        GONOSUMDB="*" GOFLAGS="-mod=mod" go get google.golang.org/grpc@v1.68.1
         GOOS=${GOOS} GOARCH=${GOARCH} go build -v -ldflags="${GO_LDFLAGS}" .
         mkdir -p ${TF_PLUGIN_PATH}/hashicorp/null/${TERRAFORM_PROVIDER_NULL_VERSION}/${GOOS}_${GOARCH}
         cp terraform-provider-null ${TF_PLUGIN_PATH}/hashicorp/null/${TERRAFORM_PROVIDER_NULL_VERSION}/${GOOS}_${GOARCH}
